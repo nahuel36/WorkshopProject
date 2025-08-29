@@ -19,18 +19,4 @@ public class Coin : MonoBehaviour
         }
     }
 
-    public void SetearValor1(int valor)
-    { 
-    
-    }
-
-    public void SetearValor2(bool valor)
-    {
-
-    }
-
-    public void LlamarFuncionConValores(int valor1, bool valor2) 
-    { 
-        
-    }
 }
