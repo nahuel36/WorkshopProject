@@ -21,13 +21,12 @@ public class PlayerMovement : MonoBehaviour
         onGround = 0;
         jump_charging = false;
     }
-
     private void Update()
     {
         if (move_dir.x != 0 && onGround > 0)
         {
             isSloped();
-            transform.Translate(platformDir * move_dir.x * Time.deltaTime * 10);//esto es para que gire al moverse, si no se quiere quitar
+            rb.linearVelocity =  ((Vector2)platformDir) * (move_dir.x * moveVelocity);
         }
         if (onGround == 0)
         {
