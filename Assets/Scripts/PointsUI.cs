@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PointsUI : MonoBehaviour
 {
-    float points = 0; 
+    [ReadOnlyInInspector][SerializeField] int points = 0; 
     TextMeshProUGUI pointText; 
     private void Start()
     {
@@ -11,7 +11,7 @@ public class PointsUI : MonoBehaviour
         pointText = GetComponent<TextMeshProUGUI>();
     }
 
-    private void UpdatePoints(float addedpoints)
+    private void UpdatePoints(int addedpoints)
     {
         points += addedpoints;
         pointText.text = "Points: " + points; 
