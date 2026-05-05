@@ -8,7 +8,7 @@ public class Coin : MonoBehaviour
 {
     [SerializeField]int _points = 10;
     public static event Action<int> onCollected;
-    private bool _isCollected = false;
+    [SerializeField, ReadOnlyInInspector] private bool _isCollected = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

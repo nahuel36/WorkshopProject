@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PointsUI : MonoBehaviour
 {
-    [ReadOnlyInInspector][SerializeField] int _points = 0; 
-    TextMeshProUGUI _pointText; 
+    [ReadOnlyInInspector][SerializeField] int _points = 0;
+    [SerializeField, ReadOnlyInInspector] TextMeshProUGUI _pointText; 
     private void Start()
     {
         Coin.onCollected += UpdatePoints;

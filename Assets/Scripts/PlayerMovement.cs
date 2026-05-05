@@ -6,14 +6,14 @@ using UnityEngine.InputSystem.Interactions;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] Rigidbody2D _rb;//tambien puede hacerse por busqueda con find o con getcomponent
-    bool _jump_charging;
-    int _onGround;
+    [SerializeField, ReadOnlyInInspector] bool _jump_charging;
+    [SerializeField, ReadOnlyInInspector] int _onGround;
     [SerializeField] float _moveVelocity = 8;
     [SerializeField] float _jumpForce = 30;
-    Vector2 _move_dir;
-    Vector3 _platformDir;
-    float _time;
-    Animator _animator;
+    [SerializeField, ReadOnlyInInspector] Vector2 _move_dir;
+    [SerializeField, ReadOnlyInInspector] Vector3 _platformDir;
+    [SerializeField, ReadOnlyInInspector] float _time;
+    [SerializeField, ReadOnlyInInspector] Animator _animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

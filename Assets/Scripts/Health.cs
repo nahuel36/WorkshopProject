@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    Slider _healthBar;
+    [SerializeField, ReadOnlyInInspector] Slider _healthBar;
     [SerializeField] GameObject _youLoosePanel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     right
     }
 
-    private Direction _actualDirection;
+    [SerializeField, ReadOnlyInInspector] private Direction _actualDirection;
     [SerializeField]float _leftLimit = -5;
     [SerializeField]float _rightLimit = 5;
     [SerializeField] int _damage = 10;
