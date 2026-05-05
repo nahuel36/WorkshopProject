@@ -503,7 +503,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1590531716
+--- !u!43 &1353339544
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -897,26 +897,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d139df5b968199e4eadac561fcb79e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectionColision
-  curve:
+  _curve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.3950354
-      outSlope: 0.3950354
+      time: 0.0029608386
+      value: -0.008156545
+      inSlope: 0.07068814
+      outSlope: 0.07068814
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0.062865496
+      inWeight: 0.33333334
+      outWeight: 0.092157744
     - serializedVersion: 3
-      time: 2.8915138
-      value: 2.929772
-      inSlope: 3.9635224
-      outSlope: 3.9635224
+      time: 3.376869
+      value: 0.6311208
+      inSlope: 0.6310984
+      outSlope: 1.037337
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.44603607
+    - serializedVersion: 3
+      time: 4.234207
+      value: 2.452346
+      inSlope: 2.177276
+      outSlope: 2.177276
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.026315793
+      inWeight: 0.02982419
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -1028,7 +1037,7 @@ MonoBehaviour:
     rid: 6186273641302327351
   m_ShadowCastingSource: 2
   m_ShadowMesh:
-    m_Mesh: {fileID: 1590531716}
+    m_Mesh: {fileID: 1353339544}
     m_LocalBounds:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0.44999695, y: 0.44999695, z: 0}

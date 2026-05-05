@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 public class AnimationCurveExample : MonoBehaviour
 {
    
-    [SerializeField] AnimationCurve curve;
+    [SerializeField] AnimationCurve _curve;
 
     private void Update()
     {
-        transform.Rotate(new Vector3(0,0,curve.Evaluate(Time.time)));
+        transform.Rotate(new Vector3(0,0,_curve.Evaluate(Time.time)));
     }
 
 }
