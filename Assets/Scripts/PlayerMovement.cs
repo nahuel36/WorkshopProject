@@ -40,9 +40,44 @@ public class PlayerMovement : MonoBehaviour
                 hit_down.collider.isTrigger = false;
             }
         }
-           
-        
 
+        if (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
+        {
+            if (Keyboard.current.rightArrowKey.isPressed)
+                move_dir.x = Keyboard.current.rightArrowKey.ReadValue();
+            else if (Keyboard.current.leftArrowKey.isPressed)
+                move_dir.x = -Keyboard.current.leftArrowKey.ReadValue();
+
+            animator.Play("Move");
+            if (move_dir.x > 0)
+                transform.localScale = new Vector3(1, 1, 1);
+            else if (move_dir.x < 0)
+                transform.localScale = new Vector3(-1, 1, 1);
+        }
+        if (Keyboard.current.rightArrowKey.wasReleasedThisFrame || Keyboard.current.leftArrowKey.wasReleasedThisFrame)
+        {
+            animator.Play("Idle");
+            move_dir.x = 0;
+        }
+
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && onGround > 0)
+        {
+            jump_charging = true;
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            time = Time.time;
+            transform.DOPause();
+            transform.DOScaleY(0.33f, 3);
+            transform.DOLocalMoveY(transform.localPosition.y - 0.33f, 3);
+        }
+        if (Keyboard.current.spaceKey.wasReleasedThisFrame && jump_charging)
+        {
+            jump_charging = false;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            transform.DOPause();
+            transform.DOShakeScale(1).onComplete += () => transform.DOScale(1, 0.5f);//funcion lambda o funcion flecha
+            rb.AddForce(new Vector2(0, (time - Time.time) * jumpForce), ForceMode2D.Impulse);
+            //transform.DOJump(new Vector3(transform.position.x, transform.position.y + (float)callbackCont.duration), 1, 1, 2);
+        }
     }
 
 
@@ -53,53 +88,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (hit && hit.normal != Vector2.up)
         {
-            platformDir = Vector3.ProjectOnPlane(platformDir, hit.transform.up).normalized;
+            platformDir = Vector3.ProjectOnPlane(platformDir, hit.normal).normalized;
         }
         else
         {
             platformDir = Vector2.right;
         }
     }
-    public void Move(InputAction.CallbackContext callbackCont)
-    {
-        move_dir = callbackCont.ReadValue<Vector2>();
 
-        if (move_dir != Vector2.zero)
-        { 
-            animator.Play("Move");
-            if(move_dir.x > 0)
-                transform.localScale = new Vector3(1, 1, 1);
-            else if (move_dir.x < 0)
-                transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            animator.Play("Idle");
-        }
-    }
-
-
-    public void JumpCharge(InputAction.CallbackContext callbackCont)
-    {
-        if (callbackCont.started && onGround > 0)
-        {
-            jump_charging = true;
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            time = Time.time;
-            transform.DOPause();
-            transform.DOScaleY(0.33f, 3);
-            transform.DOLocalMoveY(transform.localPosition.y - 0.33f, 3);
-        }
-        if(callbackCont.canceled && jump_charging)
-        {
-            jump_charging = false;
-            rb.bodyType = RigidbodyType2D.Dynamic;
-            transform.DOPause();
-            transform.DOShakeScale(1).onComplete += () => transform.DOScale(1, 0.5f);//funcion lambda o funcion flecha
-            rb.AddForce(new Vector2(0, (time - Time.time) *jumpForce), ForceMode2D.Impulse);
-            //transform.DOJump(new Vector3(transform.position.x, transform.position.y + (float)callbackCont.duration), 1, 1, 2);
-        }
-    }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {

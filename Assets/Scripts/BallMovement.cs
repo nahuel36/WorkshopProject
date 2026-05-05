@@ -28,7 +28,7 @@ public class BallMovement : MonoBehaviour
         { 
             rb.AddTorque(30 * moveVelocity * -move_dir.x * Time.deltaTime);
             
-            //isSloped();
+            //IsSloped();
             //rb.linearVelocity = platformDir * move_dir.x * moveVelocity * Time.deltaTime * 300;
         }
 
@@ -45,23 +45,43 @@ public class BallMovement : MonoBehaviour
             }
         }
             
-        
-
-    }
-
-    public void Move(InputAction.CallbackContext callbackCont)
-    {
-
-        move_dir = callbackCont.ReadValue<Vector2>();
-
-        if (move_dir == Vector2.zero)
+        if(Keyboard.current.spaceKey.wasPressedThisFrame && onGround > 0)
         {
+            jump_charging = true;
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            time = Time.time;
+            transform.DOPause();
+            transform.DOScaleY(0.33f, 3);
+            transform.DOLocalMoveY(transform.localPosition.y - 0.33f, 3);
+        }
+
+        if(Keyboard.current.spaceKey.wasReleasedThisFrame && jump_charging)
+        {
+            jump_charging = false;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            transform.DOPause();
+            transform.DOShakeScale(1).onComplete += () => transform.DOScale(1, 0.5f);//funcion lambda o funcion flecha
+            rb.AddForce(new Vector2(0, (time - Time.time) * jumpForce), ForceMode2D.Impulse);
+            //transform.DOJump(new Vector3(transform.position.x, transform.position.y + (float)callbackCont.duration), 1, 1, 2);
+        }
+
+        if(Keyboard.current.rightArrowKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
+        {
+            if (Keyboard.current.rightArrowKey.isPressed)
+                move_dir.x = Keyboard.current.rightArrowKey.ReadValue();
+            else if (Keyboard.current.leftArrowKey.isPressed)
+                move_dir.x = -Keyboard.current.leftArrowKey.ReadValue();
+        }
+        if(Keyboard.current.rightArrowKey.wasReleasedThisFrame || Keyboard.current.leftArrowKey.wasReleasedThisFrame)
+        {
+            move_dir.x = 0;
             rb.linearVelocityX = 0;
             rb.angularVelocity = 0;
         }
     }
 
-    private void isSloped()
+
+    private void IsSloped()
     {
         RaycastHit2D hit;
         hit = Physics2D.Raycast(transform.position + 0.5f * Vector3.down, Vector2.down);
@@ -76,27 +96,6 @@ public class BallMovement : MonoBehaviour
         }
     }
 
-    public void JumpCharge(InputAction.CallbackContext callbackCont)
-    {
-        if (callbackCont.started && onGround > 0)
-        {
-            jump_charging = true;
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            time = Time.time;
-            transform.DOPause();
-            transform.DOScaleY(0.33f, 3);
-            transform.DOLocalMoveY(transform.localPosition.y - 0.33f, 3);
-        }
-        if(callbackCont.canceled && jump_charging)
-        {
-            jump_charging = false;
-            rb.bodyType = RigidbodyType2D.Dynamic;
-            transform.DOPause();
-            transform.DOShakeScale(1).onComplete += () => transform.DOScale(1, 0.5f);//funcion lambda o funcion flecha
-            rb.AddForce(new Vector2(0, (time - Time.time)*jumpForce), ForceMode2D.Impulse);
-            //transform.DOJump(new Vector3(transform.position.x, transform.position.y + (float)callbackCont.duration), 1, 1, 2);
-        }   
-    }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
