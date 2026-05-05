@@ -3,22 +3,22 @@ using UnityEngine;
 
 public class PointsUI : MonoBehaviour
 {
-    [ReadOnlyInInspector][SerializeField] int points = 0; 
-    TextMeshProUGUI pointText; 
+    [ReadOnlyInInspector][SerializeField] int _points = 0; 
+    TextMeshProUGUI _pointText; 
     private void Start()
     {
-        Coin.OnCollected += UpdatePoints;
-        pointText = GetComponent<TextMeshProUGUI>();
+        Coin.onCollected += UpdatePoints;
+        _pointText = GetComponent<TextMeshProUGUI>();
     }
 
     private void UpdatePoints(int addedpoints)
     {
-        points += addedpoints;
-        pointText.text = "Points: " + points; 
+        _points += addedpoints;
+        _pointText.text = "Points: " + _points; 
     }
 
     private void OnDestroy()
     {
-        Coin.OnCollected -= UpdatePoints; 
+        Coin.onCollected -= UpdatePoints; 
     }
 }

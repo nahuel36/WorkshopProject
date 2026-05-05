@@ -5,30 +5,30 @@ using UnityEngine.InputSystem.Interactions;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rb;//tambien puede hacerse por busqueda con find o con getcomponent
-    bool jump_charging;
-    int onGround;
-    [SerializeField] float moveVelocity = 8;
-    [SerializeField] float jumpForce = 10;
-    Vector2 move_dir;
-    Vector3 platformDir;
-    float time;
-    Animator animator;
+    [SerializeField] Rigidbody2D _rb;//tambien puede hacerse por busqueda con find o con getcomponent
+    bool _jump_charging;
+    int _onGround;
+    [SerializeField] float _moveVelocity = 8;
+    [SerializeField] float _jumpForce = 30;
+    Vector2 _move_dir;
+    Vector3 _platformDir;
+    float _time;
+    Animator _animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        animator = GetComponent<Animator>();
-        onGround = 0;
-        jump_charging = false;
+        _animator = GetComponent<Animator>();
+        _onGround = 0;
+        _jump_charging = false;
     }
     private void Update()
     {
-        if (move_dir.x != 0 && onGround > 0)
+        if (_move_dir.x != 0 && _onGround > 0)
         {
             isSloped();
-            rb.linearVelocity =  ((Vector2)platformDir) * (move_dir.x * moveVelocity);
+            _rb.linearVelocity =  ((Vector2)_platformDir) * (_move_dir.x * _moveVelocity);
         }
-        if (onGround == 0)
+        if (_onGround == 0)
         {
             RaycastHit2D hit_up = Physics2D.Raycast(transform.position - 0.5f * Vector3.down, Vector2.up);
             if (hit_up && hit_up.collider.CompareTag("Ground"))
@@ -44,38 +44,38 @@ public class PlayerMovement : MonoBehaviour
         if (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
         {
             if (Keyboard.current.rightArrowKey.isPressed)
-                move_dir.x = Keyboard.current.rightArrowKey.ReadValue();
+                _move_dir.x = Keyboard.current.rightArrowKey.ReadValue();
             else if (Keyboard.current.leftArrowKey.isPressed)
-                move_dir.x = -Keyboard.current.leftArrowKey.ReadValue();
+                _move_dir.x = -Keyboard.current.leftArrowKey.ReadValue();
 
-            animator.Play("Move");
-            if (move_dir.x > 0)
+            _animator.Play("Move");
+            if (_move_dir.x > 0)
                 transform.localScale = new Vector3(1, 1, 1);
-            else if (move_dir.x < 0)
+            else if (_move_dir.x < 0)
                 transform.localScale = new Vector3(-1, 1, 1);
         }
         if (Keyboard.current.rightArrowKey.wasReleasedThisFrame || Keyboard.current.leftArrowKey.wasReleasedThisFrame)
         {
-            animator.Play("Idle");
-            move_dir.x = 0;
+            _animator.Play("Idle");
+            _move_dir.x = 0;
         }
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && onGround > 0)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && _onGround > 0)
         {
-            jump_charging = true;
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            time = Time.time;
+            _jump_charging = true;
+            _rb.bodyType = RigidbodyType2D.Kinematic;
+            _time = Time.time;
             transform.DOPause();
             transform.DOScaleY(0.33f, 3);
             transform.DOLocalMoveY(transform.localPosition.y - 0.33f, 3);
         }
-        if (Keyboard.current.spaceKey.wasReleasedThisFrame && jump_charging)
+        if (Keyboard.current.spaceKey.wasReleasedThisFrame && _jump_charging)
         {
-            jump_charging = false;
-            rb.bodyType = RigidbodyType2D.Dynamic;
+            _jump_charging = false;
+            _rb.bodyType = RigidbodyType2D.Dynamic;
             transform.DOPause();
             transform.DOShakeScale(1).onComplete += () => transform.DOScale(1, 0.5f);//funcion lambda o funcion flecha
-            rb.AddForce(new Vector2(0, (time - Time.time) * jumpForce), ForceMode2D.Impulse);
+            _rb.AddForce(new Vector2(0, (_time - Time.time) * _jumpForce), ForceMode2D.Impulse);
             //transform.DOJump(new Vector3(transform.position.x, transform.position.y + (float)callbackCont.duration), 1, 1, 2);
         }
     }
@@ -88,11 +88,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (hit && hit.normal != Vector2.up)
         {
-            platformDir = Vector3.ProjectOnPlane(platformDir, hit.normal).normalized;
+            _platformDir = Vector3.ProjectOnPlane(_platformDir, hit.normal).normalized;
         }
         else
         {
-            platformDir = Vector2.right;
+            _platformDir = Vector2.right;
         }
     }
 
@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
-            onGround++;
+            _onGround++;
         }
     }
 
@@ -109,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            onGround++;
+            _onGround++;
         }
     }
 
@@ -117,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            onGround--;
+            _onGround--;
         }
     }
 
@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            onGround--;
+            _onGround--;
         }
     }
 }

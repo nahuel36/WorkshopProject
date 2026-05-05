@@ -246,9 +246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9623a8d7c074a14fbad5938b083a0bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftLimit: -6
-  RightLimit: -3
-  damage: 30
+  _leftLimit: -7
+  _rightLimit: -2
+  _damage: 30
 --- !u!4 &177025419
 Transform:
   m_ObjectHideFlags: 0
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f80598a2d5c1da428c83a7cb398e9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  youLoosePanel: {fileID: 1335467985}
+  _youLoosePanel: {fileID: 1335467985}
 --- !u!114 &312846787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3186,9 +3186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a88c337de4f424aabb4f5b7a51a900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1339044499}
-  moveVelocity: 8
-  jumpForce: 30
+  _rb: {fileID: 1339044499}
+  _moveVelocity: 8
+  _jumpForce: 30
 --- !u!95 &1339044502
 Animator:
   serializedVersion: 7
@@ -3423,7 +3423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6715255166c8be438e3691b114c8dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 10
+  _points: 10
 --- !u!1 &1645440258
 GameObject:
   m_ObjectHideFlags: 0

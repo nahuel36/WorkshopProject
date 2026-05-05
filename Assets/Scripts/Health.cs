@@ -3,21 +3,21 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    Slider healthBar;
-    [SerializeField] GameObject youLoosePanel;
+    Slider _healthBar;
+    [SerializeField] GameObject _youLoosePanel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Enemy.OnDamage += Enemy_OnDamage;
-        healthBar = GetComponent<Slider>();
+        Enemy.onDamage += Enemy_OnDamage;
+        _healthBar = GetComponent<Slider>();
     }
 
     private void Enemy_OnDamage(float damage)
     {
-        healthBar.value -= damage / (float)100;
-        if (healthBar.value <= 0)
+        _healthBar.value -= damage / (float)100;
+        if (_healthBar.value <= 0)
         {
-            youLoosePanel.SetActive(true);
+            _youLoosePanel.SetActive(true);
             Time.timeScale = 0; // Stop the game
         }
     }
