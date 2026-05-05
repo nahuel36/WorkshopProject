@@ -1,1 +1,1 @@
-Este es un juego de ejemplo, como veras, todas las variables privadas tienen un atributo llamado ReadOnlyInInspector que si intentas copiarlo a tu codigo, no va a funcionar, para poder usar este atributo tienes que copiarte la carpeta Customizing dentro de Scripts  
+Este es un juego de ejemplo, como veras, todas las variables privadas tienen un atributo llamado ReadOnlyInInspector que, si intentas copiarlo a tu codigo, no va a funcionar. Para poder usar este atributo tienes que copiarte la carpeta Customizing dentro de Scripts.
