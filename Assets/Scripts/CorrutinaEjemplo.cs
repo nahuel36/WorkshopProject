@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-public class Corrutina : MonoBehaviour
+public class CorrutinaEjemplo : MonoBehaviour
 {
     [SerializeField] TMPro.TextMeshProUGUI textMeshPro;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
