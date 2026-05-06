@@ -23,10 +23,17 @@ public class CargaDatos : MonoBehaviour
 
         ////// CALCULO EL HASH DEL JSON DE DATOS Y LO COMPARO CON EL HASH GUARDADO
         string jsonDatos = JsonConvert.SerializeObject(info.datos);
+
+        //// MODO SIMPLIFICADO
         SHA256 sha = SHA256.Create();
         string hash = BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(jsonDatos))).Replace("-", "").ToLower();
-        
-        if(hash == info.hash)
+
+        ///// MODO AVANZADO
+        //byte[] key = Encoding.UTF8.GetBytes(SystemInfo.deviceUniqueIdentifier);
+        //HMACSHA256 hmac = new HMACSHA256(key);
+        //string hash = BitConverter.ToString(hmac.ComputeHash(Encoding.UTF8.GetBytes(jsonDatos))).Replace("-", "").ToLower();
+
+        if (hash == info.hash)
         {
             datosContainer.informacionAGuardar = info;
             Debug.Log("Datos cargados correctamente desde: " + path);

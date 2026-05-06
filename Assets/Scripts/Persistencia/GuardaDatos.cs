@@ -16,6 +16,12 @@ public class GuardaDatos : MonoBehaviour
         string json = JsonConvert.SerializeObject(datosContainer.informacionAGuardar.datos);
         datosContainer.informacionAGuardar.hash = BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(json))).Replace("-", "").ToLower();
 
+        ////MODO AVANZADO
+        //byte[] key = Encoding.UTF8.GetBytes(SystemInfo.deviceUniqueIdentifier);
+        //HMACSHA256 hmac = new HMACSHA256(key);
+        //string jsonDatos = JsonConvert.SerializeObject(datosContainer.informacionAGuardar.datos);
+        //datosContainer.informacionAGuardar.hash = BitConverter.ToString(hmac.ComputeHash(Encoding.UTF8.GetBytes(jsonDatos))).Replace("-", "").ToLower();
+
 
         ///// SERIALIZO EL OBJETO InformacionAGuardar A JSON Y LO GUARDO EN EL ARCHIVO
         string jsonfinal = JsonConvert.SerializeObject(datosContainer.informacionAGuardar);
