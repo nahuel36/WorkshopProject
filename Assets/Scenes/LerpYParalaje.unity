@@ -223,10 +223,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d47cd25921f1604e9434d9977d2d896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EjemploLerp
-  _lerpSpeed: 0.8
-  _startPos: -3.5
-  _endPos: 3.5
-  _targetPos: 0
+  _lerpSpeed: 0.1
+  _leftPos: -3.5
+  _rightPos: 3.5
+  _endPos: 0
+  _startPos: 0
+  _lerpValue: 0
 --- !u!1 &170160807
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,10 +561,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d47cd25921f1604e9434d9977d2d896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EjemploLerp
-  _lerpSpeed: 0.5
-  _startPos: -3.5
-  _endPos: 3.5
-  _targetPos: 0
+  _lerpSpeed: 0.025
+  _leftPos: -3.5
+  _rightPos: 3.5
+  _endPos: 0
+  _startPos: 0
+  _lerpValue: 0
 --- !u!1 &1506908159
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,10 +671,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d47cd25921f1604e9434d9977d2d896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EjemploLerp
-  _lerpSpeed: 1
-  _startPos: -3.5
-  _endPos: 3.5
-  _targetPos: 0
+  _lerpSpeed: 0.6
+  _leftPos: -3.5
+  _rightPos: 3.5
+  _endPos: 0
+  _startPos: 0
+  _lerpValue: 0
 --- !u!1 &1573701720
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,10 +781,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d47cd25921f1604e9434d9977d2d896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EjemploLerp
-  _lerpSpeed: 0.9
-  _startPos: -3.5
-  _endPos: 3.5
-  _targetPos: 0
+  _lerpSpeed: 0.4
+  _leftPos: -3.5
+  _rightPos: 3.5
+  _endPos: 0
+  _startPos: 0
+  _lerpValue: 0
 --- !u!1 &1959438444
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,10 +891,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d47cd25921f1604e9434d9977d2d896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EjemploLerp
-  _lerpSpeed: 0.65
-  _startPos: -3.5
-  _endPos: 3.5
-  _targetPos: 0
+  _lerpSpeed: 0.05
+  _leftPos: -3.5
+  _rightPos: 3.5
+  _endPos: 0
+  _startPos: 0
+  _lerpValue: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
