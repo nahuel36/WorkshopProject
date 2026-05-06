@@ -11,14 +11,19 @@ public class GuardaDatos : MonoBehaviour
 
     public void GuardarDatos()
     {
+        ////// CALCULO EL HASH DEL JSON DE DATOS Y LO GUARDO EN EL OBJETO InformacionAGuardar
         SHA256 sha = SHA256.Create();
         string json = JsonConvert.SerializeObject(datosContainer.informacionAGuardar.datos);
         datosContainer.informacionAGuardar.hash = BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(json))).Replace("-", "").ToLower();
+
+
+        ///// SERIALIZO EL OBJETO InformacionAGuardar A JSON Y LO GUARDO EN EL ARCHIVO
         string jsonfinal = JsonConvert.SerializeObject(datosContainer.informacionAGuardar);
 
         StreamWriter writer = new StreamWriter(path);
         writer.Write(jsonfinal);
         writer.Close();
+
         Debug.Log("Datos guardados en: " + path);
     }
 }

@@ -8,31 +8,33 @@ using UnityEngine;
 
 public class CargaDatos : MonoBehaviour
 {
-        public DatosContainer datosContainer;
-        private string path = Application.dataPath + "/Scripts/Persistencia/datos.txt";
+    public DatosContainer datosContainer;
+    private string path = Application.dataPath + "/Scripts/Persistencia/datos.txt";
 
-        public void CargarDatos()
+    public void CargarDatos()
+    {
+        //////// ABRO EL ARCHIVO Y LEO EL CONTENIDO
+        StreamReader sr = new StreamReader(path);
+        string json = sr.ReadToEnd();
+        sr.Close();
+
+        /////// DESERIALIZO EL JSON A UN OBJETO DE TIPO InformacionAGuardar
+        InformacionAGuardar info = JsonConvert.DeserializeObject<InformacionAGuardar>(json);
+
+        ////// CALCULO EL HASH DEL JSON DE DATOS Y LO COMPARO CON EL HASH GUARDADO
+        string jsonDatos = JsonConvert.SerializeObject(info.datos);
+        SHA256 sha = SHA256.Create();
+        string hash = BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(jsonDatos))).Replace("-", "").ToLower();
+        
+        if(hash == info.hash)
         {
-            StreamReader sr = new StreamReader(path);
-            string json = sr.ReadToEnd();
-            sr.Close();
-
-            InformacionAGuardar info = JsonConvert.DeserializeObject<InformacionAGuardar>(json);
-
-            string jsonDatos = JsonConvert.SerializeObject(info.datos);
-
-            SHA256 sha = SHA256.Create();
-            string hash = BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(jsonDatos))).Replace("-", "").ToLower();
-            
-            if(hash == info.hash)
-            {
-                datosContainer.informacionAGuardar = info;
-                Debug.Log("Datos cargados correctamente desde: " + path);
-            }
-            else
-            {
-                Debug.LogError("Error al cargar los datos: el hash no coincide.");
-            }
+            datosContainer.informacionAGuardar = info;
+            Debug.Log("Datos cargados correctamente desde: " + path);
         }
+        else
+        {
+            Debug.LogError("Error al cargar los datos: el hash no coincide.");
+        }
+    }
 
 }
