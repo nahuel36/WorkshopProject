@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d47cd25921f1604e9434d9977d2d896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EjemploLerp
-  _lerpSpeed: 0.01
+  _lerpSpeed: 0.015
   _leftPos: 4
   _rightPos: -83
   _endPos: 0
