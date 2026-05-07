@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Example/Editor/StylesUIToolkitEnInspector.uss?fileID=7433441132597879392&amp;guid=3eaec1219ace60940a646e6fd17f5817&amp;type=3#StylesUIToolkitEnInspector"/>
+    <ui:Label text="Hello World! From UXML"/>
+    <ui:Label text="Hello World! With Style" class="custom-label"/>
+    <ui:TextField label="Text Field" placeholder-text="filler text" binding-path="myString"/>
+    <ui:IntegerField label="Integer Field" value="42" binding-path="myInt"/>
+    <ui:SliderInt label="SliderInt" value="42" high-value="100" binding-path="myInt" style="cursor: initial;"/>
+    <ui:ListView binding-path="miLista" data-source-type="UIToolkitEnInspector, Assembly-CSharp" virtualization-method="DynamicHeight" show-foldout-header="true" show-add-remove-footer="true" header-title="Lista" reorderable="true" binding-source-selection-mode="Manual" item-template="project://database/Assets/UI%20Toolkit/Example/Editor/itemsEnInspector.uxml?fileID=9197481963319205126&amp;guid=1fe813c320893af4e831d39e65f31420&amp;type=3#itemsEnInspector" data-source-path="miLista" show-border="true" style="transition-property: all;"/>
+</ui:UXML>

@@ -1,0 +1,5 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Example/Editor/StylesUIToolkitEnInspector.uss?fileID=7433441132597879392&amp;guid=3eaec1219ace60940a646e6fd17f5817&amp;type=3#StylesUIToolkitEnInspector"/>
+    <ui:Label text="Nombre inventario" class="custom-label" style="color: rgb(0, 0, 0);"/>
+    <ui:Image source="project://database/Assets/Images/potions.png?fileID=-8485995304713028149&amp;guid=e3a3bd352079c4f47ba705c7dc20b3c3&amp;type=3#potions_0"/>
+</ui:UXML>
