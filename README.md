@@ -2,7 +2,7 @@ Este es un juego de ejemplo, como veras, todas las variables privadas tienen un 
 
 Este proyecto agradece y usa el siguiente recurso de open game art
 
-https://opengameart.org/content/city-parallax-background-with-buildings-pixel-art
-https://opengameart.org/content/walking-animation
-https://opengameart.org/content/soccer-ball
-https://opengameart.org/content/platform-tile4
+<br />https://opengameart.org/content/city-parallax-background-with-buildings-pixel-art
+<br />https://opengameart.org/content/walking-animation
+<br />https://opengameart.org/content/soccer-ball
+<br />https://opengameart.org/content/platform-tile4
