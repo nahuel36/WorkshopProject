@@ -286,8 +286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5908315d299239b4b963fd44c3284c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersonajeAtaque
-  arma: {fileID: 11400000, guid: 2a18ba9c86852b04187d91b005cf4b7c, type: 2}
-  textMeshPro: {fileID: 130395998}
+  _arma: {fileID: 11400000, guid: 3a48ffe635ff9c342a9e20317c84abd1, type: 2}
+  _textMeshPro: {fileID: 130395998}
 --- !u!4 &216400393
 Transform:
   m_ObjectHideFlags: 0

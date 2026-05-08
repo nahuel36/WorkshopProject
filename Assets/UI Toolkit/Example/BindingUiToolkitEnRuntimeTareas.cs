@@ -3,17 +3,17 @@ using UnityEngine.UIElements;
 
 public class BindingUiToolkitEnRuntimeListaTareas : MonoBehaviour
 {
-    [SerializeField] UIDocument document;
-    [SerializeField] UIToolkitEnRuntimeListaTareas target;
-    [SerializeField] VisualTreeAsset itemsBuilder;
+    [SerializeField] UIDocument _document;
+    [SerializeField] UIToolkitEnRuntimeListaTareas _target;
+    [SerializeField] VisualTreeAsset _itemsBuilder;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
     {
-        var root = document.rootVisualElement;
+        var root = _document.rootVisualElement;
 
         var listView = root.Q<VisualElement>().Q<ListView>();
-        listView.itemsSource = target.listaTareas;
+        listView.itemsSource = _target.listaTareas;
 
         // CREAR ELEMENTO VISUAL
         listView.makeItem = () => new Label();
@@ -22,19 +22,19 @@ public class BindingUiToolkitEnRuntimeListaTareas : MonoBehaviour
         listView.bindItem = (element, index) =>
         {
             element.Clear();
-            VisualElement itemElement = itemsBuilder.Instantiate();
-            itemElement.Q<TextField>().value = target.listaTareas[index].nombreTarea;
+            VisualElement itemElement = _itemsBuilder.Instantiate();
+            itemElement.Q<TextField>().value = _target.listaTareas[index].nombreTarea;
 
             itemElement.Q<TextField>().RegisterValueChangedCallback(evt =>
             {
-                target.listaTareas[index].nombreTarea = evt.newValue;
+                _target.listaTareas[index].nombreTarea = evt.newValue;
             });
 
-            itemElement.Q<Toggle>().value = target.listaTareas[index].terminada;
+            itemElement.Q<Toggle>().value = _target.listaTareas[index].terminada;
 
             itemElement.Q<Toggle>().RegisterValueChangedCallback(evt =>
             {
-                target.listaTareas[index].terminada = evt.newValue;
+                _target.listaTareas[index].terminada = evt.newValue;
             });
 
             element.Add(itemElement);
@@ -45,7 +45,7 @@ public class BindingUiToolkitEnRuntimeListaTareas : MonoBehaviour
 
         listView.onAdd += (lv) =>
         {
-            target.listaTareas.Add(new MiTarea() { nombreTarea = "Nueva tarea", terminada = false });
+            _target.listaTareas.Add(new MiTarea() { nombreTarea = "Nueva tarea", terminada = false });
 
             listView.RefreshItems();
         };

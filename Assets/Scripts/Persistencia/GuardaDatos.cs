@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 public class GuardaDatos : MonoBehaviour
 {
     public DatosContainer datosContainer;
-    private string path = Application.dataPath + "/Scripts/Persistencia/datos.txt";
+    private string _path = Application.dataPath + "/Scripts/Persistencia/datos.txt";
 
     public void GuardarDatos()
     {
@@ -26,10 +26,10 @@ public class GuardaDatos : MonoBehaviour
         ///// SERIALIZO EL OBJETO InformacionAGuardar A JSON Y LO GUARDO EN EL ARCHIVO
         string jsonfinal = JsonConvert.SerializeObject(datosContainer.informacionAGuardar);
 
-        StreamWriter writer = new StreamWriter(path);
+        StreamWriter writer = new StreamWriter(_path);
         writer.Write(jsonfinal);
         writer.Close();
 
-        Debug.Log("Datos guardados en: " + path);
+        Debug.Log("Datos guardados en: " + _path);
     }
 }

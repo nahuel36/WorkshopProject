@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f07175b82f4ec64dbeda78f20059bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Corrutina
-  textMeshPro: {fileID: 1880756729}
+  _textMeshPro: {fileID: 1880756729}
 --- !u!4 &918833965
 Transform:
   m_ObjectHideFlags: 0

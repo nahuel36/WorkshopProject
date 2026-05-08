@@ -371,9 +371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20c69454d22c014397d746ccd3a7396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BindingUiToolkitEnRuntimeListaTareas
-  document: {fileID: 192121151}
-  target: {fileID: 555584074}
-  itemsBuilder: {fileID: 9197481963319205126, guid: 3834bf02e07947a4cbfc7a64de225f91, type: 3}
+  _document: {fileID: 192121151}
+  _target: {fileID: 555584074}
+  _itemsBuilder: {fileID: 9197481963319205126, guid: 442c66183ee0e3c459a0bf50f862303a, type: 3}
 --- !u!114 &192121151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1175,8 +1175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f6ca5a1c96b3a458b8de064bfa45f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIToolkitEnRuntime
-  document: {fileID: 980901187}
-  target: {fileID: 980901190}
+  _document: {fileID: 980901187}
+  _target: {fileID: 980901190}
 --- !u!114 &980901190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1259,9 +1259,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12b4d043cd70ec4ca995860a70cd47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BindingUIToolkitInventario
-  document: {fileID: 1055634553}
-  target: {fileID: 845536800}
-  itemsBuilder: {fileID: 9197481963319205126, guid: cdb1166c0d9fb8e49957fdf66bbaa01f, type: 3}
+  _document: {fileID: 1055634553}
+  _target: {fileID: 845536800}
+  _itemsBuilder: {fileID: 9197481963319205126, guid: cdb1166c0d9fb8e49957fdf66bbaa01f, type: 3}
 --- !u!1 &1219844812
 GameObject:
   m_ObjectHideFlags: 0

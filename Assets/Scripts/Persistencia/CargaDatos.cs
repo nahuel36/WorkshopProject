@@ -9,12 +9,12 @@ using UnityEngine;
 public class CargaDatos : MonoBehaviour
 {
     public DatosContainer datosContainer;
-    private string path = Application.dataPath + "/Scripts/Persistencia/datos.txt";
+    private string _path = Application.dataPath + "/Scripts/Persistencia/datos.txt";
 
     public void CargarDatos()
     {
         //////// ABRO EL ARCHIVO Y LEO EL CONTENIDO
-        StreamReader sr = new StreamReader(path);
+        StreamReader sr = new StreamReader(_path);
         string json = sr.ReadToEnd();
         sr.Close();
 
@@ -36,7 +36,7 @@ public class CargaDatos : MonoBehaviour
         if (hash == info.hash)
         {
             datosContainer.informacionAGuardar = info;
-            Debug.Log("Datos cargados correctamente desde: " + path);
+            Debug.Log("Datos cargados correctamente desde: " + _path);
         }
         else
         {
