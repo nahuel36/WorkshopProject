@@ -14,15 +14,12 @@ public class EditorUIToolkitInspector : Editor
         // Each editor window contains a root VisualElement object
         VisualElement root = new VisualElement();
 
+        // Pone los campos por defecto de la clase en el inspector
         InspectorElement.FillDefaultInspector(root, serializedObject, this);
 
-        // VisualElements objects can contain other VisualElement following a tree hierarchy.
-        VisualElement label = new Label("Hello World! From C#");
-        root.Add(label);
-
         // Instantiate UXML
-        VisualElement labelFromUXML = m_VisualTreeAsset.Instantiate();
-        root.Add(labelFromUXML);
+        VisualElement fromUXML = m_VisualTreeAsset.Instantiate();
+        root.Add(fromUXML);
 
 
 

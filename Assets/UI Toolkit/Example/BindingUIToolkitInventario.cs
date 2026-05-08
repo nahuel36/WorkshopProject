@@ -7,7 +7,8 @@ public class BindingUIToolkitInventario : MonoBehaviour
     [SerializeField] UIToolkitEnRuntimeInventario target;
     [SerializeField] VisualTreeAsset itemsBuilder;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private void OnEnable()
     {
         var root = document.rootVisualElement;
 
@@ -18,8 +19,6 @@ public class BindingUIToolkitInventario : MonoBehaviour
             itemElement.Q<Image>().sprite = item.imagen;
             root.Q("inventoryContainer").Add(itemElement);
         }
-
     }
-
 
 }

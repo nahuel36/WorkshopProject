@@ -8,7 +8,7 @@ public class BindingUiToolkitEnRuntimeListaTareas : MonoBehaviour
     [SerializeField] VisualTreeAsset itemsBuilder;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnEnable()
     {
         var root = document.rootVisualElement;
 
@@ -25,8 +25,17 @@ public class BindingUiToolkitEnRuntimeListaTareas : MonoBehaviour
             VisualElement itemElement = itemsBuilder.Instantiate();
             itemElement.Q<TextField>().value = target.listaTareas[index].nombreTarea;
 
+            itemElement.Q<TextField>().RegisterValueChangedCallback(evt =>
+            {
+                target.listaTareas[index].nombreTarea = evt.newValue;
+            });
+
             itemElement.Q<Toggle>().value = target.listaTareas[index].terminada;
 
+            itemElement.Q<Toggle>().RegisterValueChangedCallback(evt =>
+            {
+                target.listaTareas[index].terminada = evt.newValue;
+            });
 
             element.Add(itemElement);
 
@@ -45,9 +54,4 @@ public class BindingUiToolkitEnRuntimeListaTareas : MonoBehaviour
         listView.RefreshItems();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

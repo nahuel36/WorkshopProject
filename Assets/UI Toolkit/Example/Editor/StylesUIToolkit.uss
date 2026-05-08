@@ -1,0 +1,13 @@
+.custom-label {
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: rgb(68, 138, 255);
+}
+
+.unity-list-view__item:selected .unity-text-field__input {
+    color: black;
+}
+
+.unity-list-view__item:selected .unity-base-text-field__input {
+    color: black;
+}
