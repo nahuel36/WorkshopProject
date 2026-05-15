@@ -1,6 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -31,11 +32,24 @@ public class PlayerMovement : MonoBehaviour
         {
             RaycastHit2D hit_up = Physics2D.Raycast(transform.position - 0.5f * Vector3.down, Vector2.up);
             if (hit_up && hit_up.collider.CompareTag("Ground"))
-                hit_up.collider.isTrigger = true;
+            {
+                TilemapCollider2D tilemapCollider =
+                    hit_up.transform.GetComponent<TilemapCollider2D>();
 
+                if (tilemapCollider != null)
+                    tilemapCollider.isTrigger = true;
+
+                hit_up.collider.isTrigger = true;
+            }
             RaycastHit2D hit_down = Physics2D.Raycast(transform.position + 0.5f * Vector3.down, Vector2.down);
             if (hit_down && hit_down.collider.CompareTag("Ground"))
             {
+                TilemapCollider2D tilemapCollider =
+                    hit_down.transform.GetComponent<TilemapCollider2D>();
+
+                if (tilemapCollider != null)
+                    tilemapCollider.isTrigger = true;
+
                 hit_down.collider.isTrigger = false;
             }
         }
