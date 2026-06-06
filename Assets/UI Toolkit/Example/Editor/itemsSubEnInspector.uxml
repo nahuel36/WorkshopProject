@@ -1,0 +1,4 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Example/Editor/StylesUIToolkitEnInspector.uss?fileID=7433441132597879392&amp;guid=d9d86b6dfa3662844b1a478ce6bbc628&amp;type=3#StylesUIToolkitEnInspector"/>
+    <ui:TextField label="subnombre" placeholder-text="filler text" binding-path="subNombre" data-source-type="MiListaEnInspector, Assembly-CSharp" data-source-path="nombre"/>
+</ui:UXML>

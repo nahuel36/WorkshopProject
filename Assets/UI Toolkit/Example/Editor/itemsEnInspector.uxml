@@ -2,4 +2,5 @@
     <Style src="project://database/Assets/UI%20Toolkit/Example/Editor/StylesUIToolkitEnInspector.uss?fileID=7433441132597879392&amp;guid=d9d86b6dfa3662844b1a478ce6bbc628&amp;type=3#StylesUIToolkitEnInspector"/>
     <ui:TextField label="nombre" placeholder-text="filler text" binding-path="nombre" data-source-type="MiListaEnInspector, Assembly-CSharp" data-source-path="nombre"/>
     <ui:IntegerField label="valor" value="42" binding-path="valor" data-source-type="MiListaEnInspector, Assembly-CSharp" data-source-path="valor"/>
+    <ui:ListView item-template="project://database/Assets/UI%20Toolkit/Example/Editor/itemsSubEnInspector.uxml?fileID=9197481963319205126&amp;guid=17560dc50943eda4da2c6d41e80bfb85&amp;type=3#itemsSubEnInspector" binding-path="miListaDentroDeLista" show-border="true" show-add-remove-footer="true" header-title="Mi Lista dentro de una lista" show-alternating-row-backgrounds="ContentOnly" reorderable="true" virtualization-method="DynamicHeight" show-foldout-header="true" reorder-mode="Animated"/>
 </ui:UXML>
