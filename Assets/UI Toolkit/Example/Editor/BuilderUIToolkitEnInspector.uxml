@@ -1,8 +1,8 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/Example/Editor/StylesUIToolkitEnInspector.uss?fileID=7433441132597879392&amp;guid=d9d86b6dfa3662844b1a478ce6bbc628&amp;type=3#StylesUIToolkitEnInspector"/>
     <ui:Label text="Aquí­ vermos como podemos personalizar un componente con UI Toolkit, este no tiene asignacion desde código, se asigna todo desde el mismo editor del Builder (que se encuentra en la carpeta UI Tookit -&gt; Example -&gt; Editor) para ello se utiliza principalmente el &quot;Editor Binding Path&quot; En este ejemplo veras que los campos se repiten abajo de este texto y arriba, esto es porque a proposito repetimos los datos por defecto arriba para que se vea que efectivamente funciona." style="flex-wrap: wrap; align-items: auto; align-content: auto; flex-direction: column; white-space: normal;"/>
-    <ui:TextField label="Titulo" placeholder-text="filler text" binding-path="myString"/>
-    <ui:IntegerField label="Numero" value="42" binding-path="myInt"/>
-    <ui:SliderInt label="Numero Slider" value="42" high-value="100" binding-path="myInt" style="cursor: initial; align-items: auto;"/>
+    <ui:TextField label="Titulo" placeholder-text="filler text" binding-path="titulo"/>
+    <ui:IntegerField label="Numero" value="42" binding-path="numero"/>
+    <ui:SliderInt label="Numero Slider" value="42" high-value="100" binding-path="numero" style="cursor: initial; align-items: auto;"/>
     <ui:ListView binding-path="miLista" data-source-type="UIToolkitEnInspector, Assembly-CSharp" virtualization-method="DynamicHeight" show-foldout-header="true" show-add-remove-footer="true" header-title="Lista" reorderable="true" binding-source-selection-mode="Manual" item-template="project://database/Assets/UI%20Toolkit/Example/Editor/itemsEnInspector.uxml?fileID=9197481963319205126&amp;guid=1fe813c320893af4e831d39e65f31420&amp;type=3#itemsEnInspector" data-source-path="miLista" show-border="true" reorder-mode="Animated" style="transition-property: all;"/>
 </ui:UXML>

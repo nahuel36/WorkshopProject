@@ -22,6 +22,7 @@ public class BindingUiToolkitEnRuntimeListaTareas : MonoBehaviour
         listView.bindItem = (element, index) =>
         {
             element.Clear();
+
             VisualElement itemElement = _itemsBuilder.Instantiate();
             itemElement.Q<TextField>().value = _target.listaTareas[index].nombreTarea;
 

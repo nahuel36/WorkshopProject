@@ -148,6 +148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ede1e7c28f9374f90031b7e8926b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIToolkitTarget
+  AssetReference:
+    m_AssetGUID: 32851e0ba0d43c544b80204ff6ed289e
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   titulo: Hello World!
   numero: 42
   miLista:

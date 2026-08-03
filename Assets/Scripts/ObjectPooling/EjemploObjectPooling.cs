@@ -14,8 +14,8 @@ public class EjemploObjectPooling : MonoBehaviour
     [SerializeField] float _limiteInferior;
     [SerializeField] float _limiteSuperior;
     float _spawnCounter;
-
-    List<GameObject> gotasActivas = new List<GameObject>();
+    List<GameObject> gotasParaLiberar;
+    List <GameObject> gotasActivas = new List<GameObject>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -54,7 +54,7 @@ public class EjemploObjectPooling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        List<GameObject> gotasParaLiberar = new List<GameObject>();
+        gotasParaLiberar = new List<GameObject>();
         foreach (var gota in gotasActivas)
         {
             gota.transform.position += Vector3.down * _velocidadCaida * Time.deltaTime;
