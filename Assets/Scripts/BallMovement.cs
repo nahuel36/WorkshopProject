@@ -94,22 +94,6 @@ public class BallMovement : MonoBehaviour
     }
 
 
-    private void IsSloped()
-    {
-        RaycastHit2D hit;
-        hit = Physics2D.Raycast(transform.position + 0.5f * Vector3.down, Vector2.down);
-        
-        if (hit && hit.normal != Vector2.up)
-        {
-            _platformDir = Vector3.ProjectOnPlane(_platformDir, hit.transform.up).normalized;
-        }
-        else
-        {
-            _platformDir = Vector2.right;
-        }
-    }
-
-
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Ground"))

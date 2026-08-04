@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField, ReadOnlyInInspector] Vector3 _platformDir;
     [SerializeField, ReadOnlyInInspector] float _time;
     [SerializeField, ReadOnlyInInspector] Animator _animator;
+
+    public Rigidbody2D.SlideMovement SlideMovement = new Rigidbody2D.SlideMovement();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,8 +27,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_move_dir.x != 0 && _onGround > 0)
         {
-            isSloped();
-            _rb.linearVelocity =  ((Vector2)_platformDir) * (_move_dir.x * _moveVelocity);
+            _rb.Slide(_moveVelocity * _move_dir, Time.deltaTime, SlideMovement);
         }
         if (_onGround == 0)
         {
@@ -90,22 +91,6 @@ public class PlayerMovement : MonoBehaviour
             transform.DOShakeScale(1).onComplete += () => transform.DOScale(1, 0.5f);//funcion lambda o funcion flecha
             _rb.AddForce(new Vector2(0, (_time - Time.time) * _jumpForce), ForceMode2D.Impulse);
             //transform.DOJump(new Vector3(transform.position.x, transform.position.y + (float)callbackCont.duration), 1, 1, 2);
-        }
-    }
-
-
-    private void isSloped()
-    {
-        RaycastHit2D hit;
-        hit = Physics2D.Raycast(transform.position + 0.5f * Vector3.down, Vector2.down);
-
-        if (hit && hit.normal != Vector2.up)
-        {
-            _platformDir = Vector3.ProjectOnPlane(_platformDir, hit.normal).normalized;
-        }
-        else
-        {
-            _platformDir = Vector2.right;
         }
     }
 
