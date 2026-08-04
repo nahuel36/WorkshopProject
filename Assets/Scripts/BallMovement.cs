@@ -32,31 +32,6 @@ public class BallMovement : MonoBehaviour
             //rb.linearVelocity = platformDir * move_dir.x * moveVelocity * Time.deltaTime * 300;
         }
 
-        if (_onGround == 0)
-        {
-            RaycastHit2D hit_up = Physics2D.Raycast(transform.position - 0.5f * Vector3.down, Vector2.up);
-            if (hit_up && hit_up.collider.CompareTag("Ground"))
-            {
-                hit_up.collider.isTrigger = true;
-
-                TilemapCollider2D tilemapCollider =
-                    hit_up.transform.GetComponent<TilemapCollider2D>();
-
-                if (tilemapCollider != null)
-                    tilemapCollider.isTrigger = true;
-            }
-            RaycastHit2D hit_down = Physics2D.Raycast(transform.position + 0.5f * Vector3.down, Vector2.down);
-            if (hit_down && hit_down.collider.CompareTag("Ground"))
-            {
-                hit_down.collider.isTrigger = false;
-
-                TilemapCollider2D tilemapCollider =
-                    hit_down.transform.GetComponent<TilemapCollider2D>();
-
-                if (tilemapCollider != null)
-                    tilemapCollider.isTrigger = false;
-            }
-        }
             
         if(Keyboard.current.spaceKey.wasPressedThisFrame && _onGround > 0)
         {
